@@ -37,7 +37,7 @@
 
 - User needs to run this application with the terminal to go online (npm run start)/ and it can be checked with insomnia
 
-![Insomnia](./Assets/images/insomnia.png)
+![Insomnia](./Assets/images/insomnia.jpg)
 
 ## License
 
