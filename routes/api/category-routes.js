@@ -36,13 +36,21 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
-//not workingggg!!!!!
+
+
+//Workingggg!!!!! 
 router.put('/:id', async (req, res) => {
   // update a category by its `id` value
   try {
-    const categoryData = await Category.update(req.params.id, {
-      include: [{ model: Product, through: ProductTag, as: 'category_tags' }]
+    const categoryData = await Category.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
     });
+    if (!categoryData[0]) {
+      res.status(404).json({ message: 'No Category with this id!' });
+      return;
+    }
     res.status(200).json(categoryData);
   } catch (error) {
     res.status(500).json(error);
